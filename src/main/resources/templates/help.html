@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head('Help')"></head>
+<body>
+<div id="root">
+    <div th:replace="layout :: navbar('help')"></div>
+    <div th:replace="layout :: sidenav"></div>
+    <div id="contentholder" class="cyan lighten-5">
+        <div id="basiccontent" class="cyan lighten-4 z-depth-2">
+            <div class="left-align" style="margin: 0 auto;">
+                <h1 style="margin-bottom: 30px;" class="center-align header">Help</h1>
+                <h5>I can't login even though I made an account</h5>
+                <p>An email should've been sent to your email address. Your account won't be created until you click the link in this email.</p>
+                <h5>I never received an email to confirm my account</h5>
+                <p>You probably mistyped your email. You will need to resubmit the create account form. It's also possible that the email service is not working, in which case your account will be created without an email sent.</p>
+                <h5>I can't find a game</h5>
+                <p>Most likely no one is playing. If anyone is online, try to communicate in the lobby chat.</p>
+                <h5>I reloaded the page and now my game is gone.</h5>
+                <p>If a game hasn't started and everyone disconnects then the game will be deleted. Just make a new one.</p>
+                <h5>My game won't start even though we have enough people</h5>
+                <p>The host needs to press the start button on the right of the page.</p>
+                <h5>I don't know whose turn it is</h5>
+                <p>If the border of the board is flashing then it is your turn</p>
+                <h5>I can't make my move</h5>
+                <p>To move a piece in checkers, you tap on the piece and then tap on the space you want to move to. This website is hosted on a free plan so there might be some delay.</p>
+                <h5>I keep getting a popup that I disconnected</h5>
+                <p>There appears to be a connection issue with some devices. It's possible the website won't work for you. However in some cases, waiting five minutes or logging on with a different browser may fix this.</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div th:insert="layout :: scripts"></div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="layout :: head('Lobby')"></head>
+    <body>
+    <div id="data" th:username="${username}" th:userId="${userId}" th:joinForm="${joinForm}" th:joinGameId="${joinGameId}" th:spectatePrompt="${spectatePrompt}" th:newGamePrompt="${newGamePrompt}"></div>
+    <div id="root">
+        <div th:replace="layout :: navbar('lobby')"></div>
+        <div th:replace="layout :: sidenav"></div>
+        <div id="contentholder" class="cyan lighten-5">
+            <div id="content" class="cyan lighten-4 z-depth-2">
+                <div id="lobbyinfo">
+                    <div id="fullogo">
+                        <img id="picturelogo" src="/images/logo_simple.png">
+                        <h1 id="textlogo" class="header center-align">Board Games Online</h1>
+                    </div>
+                    <h4 style="margin-top: 25px;" class="header">What is this site?</h4>
+                    <p>This is a multiplayer board game site that I made over the summer. You can easily join games with anyone else on the site and play with them in real time. Currently Checkers, Tic Tac Toe, and Connect4 are supported.</p>
+                    <h4 class="header">How do I use this?</h4>
+                    <p>You can use the chatbox on this page to communicate. Use the navigation bar at the top of the page to navigate the site. Go to <a href="/games">Play</a> to find, join, or create games. Go to <a href="/reconnect">Reconnect</a> to go to your latest game. More specific help is listed at the <a href="/help">Help</a> page.</p>
+                    <h4 class="header">How was this made?</h4>
+                    <p>The site is currently hosted on <a href="https://www.heroku.com/">Heroku</a> for free. The backend is a <a href="https://spring.io/projects/spring-boot">Spring Boot</a> application. The front end is made without templates with <a href="https://materializecss.com/">Materialize</a>. Sockets are used to communicate back and forth with the server.</p>
+                    <h4 class="header">More Info</h4>
+                    <p>I made this site with the intent of creating a very general purpose model for implementing board games. Rendering a more complicated game is tricky with the current system but any game with a grid system should be very easy to implement without changing any front-end code. The games are rendered from a .json file storing the necessary information. See the <a href="/gameLayouts/checkers.json">checkers</a> file to see an example. I tried to include the means to display other parts of a game with predefined 'scoreboards.' The scoreboard data is sent alongside the board data. I tried to use these in the current games. TicTacToe has a timer scoreboard and checkers has a display of the current players color and counters for the amount of pieces taken. Overall, I'm satisfied with how this turned out as a completed project.</p>
+                </div>
+                <div id="mainchat">
+                    <div th:replace="layout :: chat('100%')"></div>
+                    <div th:replace="layout :: chatinput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div th:insert="layout :: scripts"></div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+        <script type="text/javascript" src="/js/chat.js"></script>
+        <script type="text/javascript" src="/js/detectDisconnect.js"></script>
+        <script type="text/javascript" src="/js/lobby.js"></script>
+    </div>
+    </body>
+</html>

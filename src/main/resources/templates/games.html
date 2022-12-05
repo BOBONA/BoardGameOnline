@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="layout :: head('Games')"></head>
+<body>
+<div id="data" th:username="${username}" th:userId="${userId}" th:joinForm="${joinForm}" th:joinGameId="${joinGameId}" th:spectatePrompt="${spectatePrompt}" th:newGamePrompt="${newGamePrompt}"></div>
+<div th:replace="layout :: flashMessage"></div>
+<div id="joinModal" class="modal">
+    <div class="modal-content">
+        <form id="joinForm" th:action="@{/join}" th:method="post" th:object="${join}" autocomplete="off">
+            <h4>Direct Join</h4>
+            <p class="error" th:text="${joinError}"></p>
+            <div class="input-field">
+                <input type="number" id="id" th:field="*{id}" placeholder="Game Id">
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" th:field="*{passcode}" autocomplete="off" placeholder="Passcode (or leave blank)">
+            </div>
+            <input type="submit" style="display: none"/>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-cyan btn-flat">Close</a>
+        <a onclick="joinBtnClicked()" class="waves-effect waves-blue btn-flat">Join</a>
+    </div>
+</div>
+<div id="spectateModal" class="modal">
+    <div class="modal-content">
+        <h4>Spectate</h4>
+        <p>This game has already started. Would you like to spectate?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-blue btn-flat">Close</a>
+        <a onclick="spectateGame()" class="waves-effect waves-blue btn-flat">Spectate</a>
+    </div>
+</div>
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <h4>Enter Passcode:</h4>
+        <div class="input-field">
+            <input type="password" id="passwordPromptInput" autocomplete="off" placeholder="This game is secured">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-blue btn-flat">Close</a>
+        <a onclick="passwordEntered()" class="waves-effect waves-blue btn-flat">Enter</a>
+    </div>
+</div>
+<div id="newGameModal" class="modal">
+    <form id="newGameForm" th:action="@{/game/new}" th:method="post" th:object="${newGameForm}" autocomplete="off">
+        <div class="modal-content">
+            <h4 class="center-align">New Game</h4>
+            <br>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="name" type="text" th:field="*{name}" required minlength="4" maxlength="26">
+                    <label for="name">Name</label>
+                    <p class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+                </div>
+                <div class="col s6">
+                    <label>Game</label>
+                    <select name="type" th:field="*{gameType}">
+                        <th:block th:each="type,iter : ${gameTypes}">
+                            <option th:value="${iter.index}" th:text="${type}"></option>
+                        </th:block>
+                    </select>
+                </div>
+            </div>
+            <p>Options</p>
+            <div class="row valign-wrapper">
+                <label class="checkBox col s4">
+                    <input type="checkbox" class="filled-in" th:field="*{spectatorsEnabled}">
+                    <span>Allow Spectators?</span>
+                </label>
+                <label class="checkBox col s4">
+                    <input id="secureGame" type="checkbox" class="filled-in" th:field="*{secured}">
+                    <span>Require Password</span>
+                </label>
+                <div style="margin: 0px;" class="input-field col s4">
+                    <input id="gamePassword" disabled type="password" th:field="*{passcode}" placeholder="Password" autocomplete="off" required minlength="5" maxlength="15">
+                    <p class="error" th:if="${#fields.hasErrors('passcode')}" th:errors="*{passcode}">Passcode Error</p>
+                </div>
+                <div class="input-field col s2">
+                    <input id="expireAfter" type="number" th:field="*{hoursUntilExpire}" required min="1" max="200">
+                    <label for="expireAfter">Expire after</label>
+                </div>
+                <div class="col s1">hour(s)</div>
+            </div>
+        </div>
+        <input style="display: none;" type="submit">
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-blue btn-flat">Close</a>
+            <button class="waves-effect waves-blue btn-flat" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+<div id="root">
+    <div th:replace="layout :: navbar('games')"></div>
+    <div th:replace="layout :: sidenav"></div>
+    <div id="contentholder" class="cyan lighten-5">
+        <div id="content" class="cyan lighten-4 z-depth-2">
+            <div id="gamescontainer">
+                <h3 class="header center-align">Games</h3>
+                <div id="controls">
+                    <div id="buttons">
+                        <div onclick="newGameClicked()" data-target="newGameModal" class="btn modal-trigger">New Game</div>
+                        <div onclick="clearSelection()" class="btn">Clear Selection</div>
+                        <div data-target="joinModal" class="btn modal-trigger">Direct Join</div>
+                    </div>
+                    <div id="searchselection">
+                        <div id="searchcontainer">
+                            <div id="search" class="input-field">
+                                <input id="searchFilter" placeholder="Search" type="text">
+                            </div>
+                        </div>
+                        <div id="selectors">
+                            <div style="min-width: fit-content; margin: 0;" class="input-field">
+                                <select id="typeFilter">
+                                    <option value="" selected>Any Game</option>
+                                    <th:block th:each="type,iter : ${gameTypes}">
+                                        <option th:value="${iter.index}" th:text="${type}"></option>
+                                    </th:block>
+                                </select>
+                            </div>
+                            <div style="overflow: auto; min-width: min-content;">
+                                <label>
+                                    <input id="startedFilter" type="checkbox" class="filled-in"/>
+                                    <span>Show started</span>
+                                </label>
+                                <label>
+                                    <input id="securedFilter" type="checkbox" class="filled-in"/>
+                                    <span>Show secured</span>
+                                </label>
+                                <label>
+                                    <input id="joinedFilter" type="checkbox" class="filled-in"/>
+                                    <span>My Games</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="games">
+                    <p id="nogames" class="center-align">No results</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div th:insert="layout :: scripts"></div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script type="text/javascript" src="/js/chat.js"></script>
+    <script type="text/javascript" src="/js/detectDisconnect.js"></script>
+    <script type="text/javascript" src="/js/games.js"></script>
+</div>
+</body>
+</html>

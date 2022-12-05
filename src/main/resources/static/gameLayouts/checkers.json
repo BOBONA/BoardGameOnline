@@ -1,0 +1,74 @@
+{
+  "width": 8,
+  "height": 9,
+  "transformX": 0,
+  "transformY": 1,
+  "reflectTransformX": 0,
+  "reflectTransformY": 0,
+  "requestContinuations": true,
+  "data": [
+    {
+      "teamId": 2,
+      "background": "/images/checkers/checkerboard.png",
+      "tiles": [
+        {"id": 0, "width": 1, "height": 1, "x": 0, "y": 7}, {"id": 1, "width": 1, "height": 1, "x": 1, "y": 7}, {"id": 2, "width": 1, "height": 1, "x": 2, "y": 7}, {"id": 3, "width": 1, "height": 1, "x": 3, "y": 7}, {"id": 4, "width": 1, "height": 1, "x": 4, "y": 7}, {"id": 5, "width": 1, "height": 1, "x": 5, "y": 7}, {"id": 6, "width": 1, "height": 1, "x": 6, "y": 7}, {"id": 7, "width": 1, "height": 1, "x": 7, "y": 7}, {"id": 8, "width": 1, "height": 1, "x": 0, "y": 6}, {"id": 9, "width": 1, "height": 1, "x": 1, "y": 6}, {"id": 10, "width": 1, "height": 1, "x": 2, "y": 6}, {"id": 11, "width": 1, "height": 1, "x": 3, "y": 6}, {"id": 12, "width": 1, "height": 1, "x": 4, "y": 6}, {"id": 13, "width": 1, "height": 1, "x": 5, "y": 6}, {"id": 14, "width": 1, "height": 1, "x": 6, "y": 6}, {"id": 15, "width": 1, "height": 1, "x": 7, "y": 6}, {"id": 16, "width": 1, "height": 1, "x": 0, "y": 5}, {"id": 17, "width": 1, "height": 1, "x": 1, "y": 5}, {"id": 18, "width": 1, "height": 1, "x": 2, "y": 5}, {"id": 19, "width": 1, "height": 1, "x": 3, "y": 5}, {"id": 20, "width": 1, "height": 1, "x": 4, "y": 5}, {"id": 21, "width": 1, "height": 1, "x": 5, "y": 5}, {"id": 22, "width": 1, "height": 1, "x": 6, "y": 5}, {"id": 23, "width": 1, "height": 1, "x": 7, "y": 5}, {"id": 24, "width": 1, "height": 1, "x": 0, "y": 4}, {"id": 25, "width": 1, "height": 1, "x": 1, "y": 4}, {"id": 26, "width": 1, "height": 1, "x": 2, "y": 4}, {"id": 27, "width": 1, "height": 1, "x": 3, "y": 4}, {"id": 28, "width": 1, "height": 1, "x": 4, "y": 4}, {"id": 29, "width": 1, "height": 1, "x": 5, "y": 4}, {"id": 30, "width": 1, "height": 1, "x": 6, "y": 4}, {"id": 31, "width": 1, "height": 1, "x": 7, "y": 4}, {"id": 32, "width": 1, "height": 1, "x": 0, "y": 3}, {"id": 33, "width": 1, "height": 1, "x": 1, "y": 3}, {"id": 34, "width": 1, "height": 1, "x": 2, "y": 3}, {"id": 35, "width": 1, "height": 1, "x": 3, "y": 3}, {"id": 36, "width": 1, "height": 1, "x": 4, "y": 3}, {"id": 37, "width": 1, "height": 1, "x": 5, "y": 3}, {"id": 38, "width": 1, "height": 1, "x": 6, "y": 3}, {"id": 39, "width": 1, "height": 1, "x": 7, "y": 3}, {"id": 40, "width": 1, "height": 1, "x": 0, "y": 2}, {"id": 41, "width": 1, "height": 1, "x": 1, "y": 2}, {"id": 42, "width": 1, "height": 1, "x": 2, "y": 2}, {"id": 43, "width": 1, "height": 1, "x": 3, "y": 2}, {"id": 44, "width": 1, "height": 1, "x": 4, "y": 2}, {"id": 45, "width": 1, "height": 1, "x": 5, "y": 2}, {"id": 46, "width": 1, "height": 1, "x": 6, "y": 2}, {"id": 47, "width": 1, "height": 1, "x": 7, "y": 2}, {"id": 48, "width": 1, "height": 1, "x": 0, "y": 1}, {"id": 49, "width": 1, "height": 1, "x": 1, "y": 1}, {"id": 50, "width": 1, "height": 1, "x": 2, "y": 1}, {"id": 51, "width": 1, "height": 1, "x": 3, "y": 1}, {"id": 52, "width": 1, "height": 1, "x": 4, "y": 1}, {"id": 53, "width": 1, "height": 1, "x": 5, "y": 1}, {"id": 54, "width": 1, "height": 1, "x": 6, "y": 1}, {"id": 55, "width": 1, "height": 1, "x": 7, "y": 1}, {"id": 56, "width": 1, "height": 1, "x": 0, "y": 0}, {"id": 57, "width": 1, "height": 1, "x": 1, "y": 0}, {"id": 58, "width": 1, "height": 1, "x": 2, "y": 0}, {"id": 59, "width": 1, "height": 1, "x": 3, "y": 0}, {"id": 60, "width": 1, "height": 1, "x": 4, "y": 0}, {"id": 61, "width": 1, "height": 1, "x": 5, "y": 0}, {"id": 62, "width": 1, "height": 1, "x": 6, "y": 0}, {"id": 63, "width": 1, "height": 1, "x": 7, "y": 0}
+      ],
+      "scoreboards": [
+        {
+          "linkedId": 1,
+          "type": "text",
+          "x": 5,
+          "y": -0.8,
+          "fontSize":  0.9
+        },
+        {
+          "linkedId": 2,
+          "type": "text",
+          "x": 7.2,
+          "y": -0.8,
+          "fontSize": 0.9
+        },
+        {
+          "linkedId": 0,
+          "type": "switchText",
+          "textOptions": {
+            "-1": "-------",
+            "1": "White's Turn",
+            "2": "Black's Turn"
+          },
+          "x": 2,
+          "y": -0.7,
+          "fontSize": 0.4,
+          "maxWidth": 4
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "teamId": 1,
+      "background": "/images/checkers/checkerboard.png",
+      "tiles": {
+        "source": 2,
+        "reflectX": true,
+        "reflectY": true
+      },
+      "scoreboards": {
+        "source": 2,
+        "reflectX": false,
+        "reflectY": false
+      }
+    }
+  ],
+  "tileImages": [
+    {
+      "idRange": "0-63",
+      "images": {
+        "0": "/images/general/blank.png",
+        "1": "/images/checkers/white.png",
+        "2": "/images/checkers/black.png",
+        "3": "/images/checkers/white_king.png",
+        "4": "/images/checkers/black_king.png"
+      }
+    }
+  ]
+}

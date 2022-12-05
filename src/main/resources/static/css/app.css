@@ -1,0 +1,460 @@
+.input-field input[type=text] + label, .input-field input[type=password] + label, .input-field input[type=email] + label {
+    color: #555;
+}
+
+.input-field input[type=text], .input-field input[type=password], .input-field input[type=email] {
+    border-bottom: 1px solid #555;
+    box-shadow: 0 1px 0 0 #555;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #bcf7fe inset !important;
+}
+
+::placeholder {
+    color: #666;
+}
+
+html {
+    overflow-y: hidden;
+}
+
+.separator {
+    border-left: black solid 1px;
+    height: 60%;
+}
+
+#flash {
+    position: fixed;
+    bottom: 0;
+    background: white;
+    z-index: 10;
+}
+
+.header {
+    margin: 5px;
+    font-family: 'ALEGREYA';
+}
+
+.infop {
+    margin-left: 25px;
+}
+
+.divider {
+    min-height: 1px;
+}
+
+/* game page */
+
+#main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: auto;
+}
+
+#gamecontainer {
+    display: flex;
+    flex: 3;
+    justify-content: center;
+}
+
+#othercontainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow: auto;
+    min-width: 320px;
+}
+
+#gameCanvas {
+    flex: none;
+    height: 100%;
+}
+
+#gameType {
+    margin-bottom: 3px;
+}
+
+#gameData {
+    word-break: break-all;
+}
+
+#gameName {
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+#remainingspace {
+    flex: 1;
+}
+
+#playerlist {
+    flex: 2;
+    max-height: 25%;
+    min-height: fit-content;
+}
+
+#online, #offline {
+   word=wrap: break-word;
+}
+
+/* chat */
+
+#chatcontainer {
+    flex: 3;
+    max-height: 50%;
+    min-height: 40%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#chatHeader {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+#chat {
+    margin: 0;
+    overflow-wrap: anywhere;
+    flex: 1;
+}
+
+#chatinputcontainer {
+    display: flex;
+    flex-direction: row;
+    min-height: fit-content;
+}
+
+#chatinput {
+    flex: 1;
+    margin-right: 10px;
+}
+
+#chatbutton {
+    align-self: center;
+}
+
+/* login and signup */
+
+#logo {
+    width: 50%;
+    height: auto;
+}
+
+#formheader {
+    margin: 0px;
+}
+
+#formcontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: fit-content;
+    max-height: 80%;
+    width: 80%;
+}
+
+#formcontainer > * {
+    padding: 10px;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: 64px;
+    z-index: 1;
+}
+
+/* navbar */
+
+#sidenavlogo {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+    #navbar > div {
+        width: 33.33%;
+    }
+}
+
+#homelogo {
+    margin-top: 10%;
+    height: 50px;
+    width: 50px;
+}
+
+#leftnav, #rightnav {
+    display: flex;
+}
+
+#rightnav {
+    justify-content: flex-end;
+}
+
+#leftnav > div > a, #rightnav > div > a {
+    color: white;
+    font-size: 20px;
+}
+
+#leftnav > div > a > p, #rightnav > div > a > p {
+    line-height: 100%;
+}
+
+#leftnav > div, #rightnav > div {
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: 0.3s;
+}
+
+#leftnav > div:hover, #rightnav > div:hover {
+    background-color: rgba(201, 76, 76, 0.3);
+}
+
+.selected {
+    background-color: rgba(201, 76, 76, 0.3);
+}
+
+.navbar-icon {
+    height: 60px;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #leftnav, #rightnav {
+        display: none;
+    }
+    #centernav {
+        flex: 1;
+    }
+}
+
+/* lobby page */
+#picturelogo {
+    width: auto;
+    height: 100%;
+    position: absolute;
+}
+
+#fullogo {
+    display: flex;
+    flex-direction: row;
+    background-color: #8BC2F4;
+    border-radius: 50px;
+    min-height: 18vh;
+    position: relative;
+}
+
+#textlogo {
+    font-size: 6.5vmin;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 18vh;
+}
+
+#lobbyinfo {
+    overflow: auto;
+}
+
+/* games page */
+
+#root {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+#contentholder {
+    min-height: 0;
+    width: 100%;
+    min-width: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+#content {
+    height: 80vh;
+    min-width: min-content;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+}
+
+#basiccontent {
+    height: 80%;
+    min-width: min-content;
+    overflow: auto;
+    padding: 25px;
+}
+
+@media screen and (max-width: 540px) {
+    #content, #basiccontent {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 540px) and (max-width: 1080px) {
+    #content, #basiccontent {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1480px) {
+    #content, #basiccontent {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1480px) {
+    #content, #basiccontent {
+        width: 60%;
+    }
+}
+
+#lobbyinfo {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+#gamescontainer {
+    flex: 5;
+    display: block;
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    min-height: min-content;
+}
+
+.error {
+    color: red;
+}
+
+#searchselection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#searchcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+
+#search {
+    flex: 1;
+    max-width: 80%;
+    margin: 0;
+}
+
+#selectors {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#selectors > * {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#games {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    min-height: 50%;
+}
+
+.gameinfo {
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.gameinfo > * {
+    margin: 5px;
+}
+
+.gamename {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.creator {
+    font-size: 12px;
+    FONT-WEIGHT: 100;
+}
+
+.gamename > * {
+    margin: 0;
+}
+
+#mainchat {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    height: 100%;
+    background-size: cover;
+    background-image: url("/images/logo.png");
+}
+
+.icon-0 {
+    background-image: url("/images/icons/TTT_icon.png");
+}
+
+.icon-1 {
+    background-image: url("/images/icons/Checkers_icon.png");
+}
+
+.icon-2 {
+    background-image: url("/images/icons/Connect4_icon.png");
+}

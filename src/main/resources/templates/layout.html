@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head th:fragment="head(title)" lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" th:href="@{/images/favicon-32x32.png}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya">
+        <link rel="stylesheet" th:href="@{/css/app.css}"/>
+        <title th:text="'BGO | ' + ${title}">BoardGameOnline</title>
+        <meta th:name="_csrf" th:content="${_csrf.token}"/>
+        <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+    </head>
+    <body>
+        <div id="flash" th:fragment="flashMessage">
+            <p th:text="${flash}"></p>
+            <div></div>
+        </div>
+        <div id="chatcontainer" class="white" th:fragment="chat(mheight)" th:style="'max-height: ' + ${mheight}">
+            <h4 id="chatHeader">Chat:</h4>
+            <p id="chat" class="white"></p>
+        </div>
+        <div id="chatinputcontainer" class="input-field" th:fragment="chatinput">
+            <input id="chatinput" type="text" autocomplete="off" onkeydown="keyPressed(event)" onkeyup="keyReleased()"/>
+            <div id="chatbutton" class="btn disabled" onclick="sendMessage()"><i class="material-icons">send</i></div>
+        </div>
+        <div th:fragment="sidenav">
+            <ul id="slide-out" class="sidenav">
+                <li><img id="sidenavlogo" src="/images/logo_simple.png"></li>
+                <li><a href="/">Lobby</a></li>
+                <li><a href="/games">Play</a></li>
+                <li th:if="${hasLastJoined || page == 'game'}"><a href="/reconnect">Reconnect</a></li>
+                <li><div class="divider"></div></li>
+                <li><a href="/help">Help</a></li>
+                <li th:if="${loggedin}"><a href="/logout">Logout</a></li>
+                <li th:if="!${loggedin}"><a href="/login">Sign In</a></li>
+            </ul>
+        </div>
+        <div th:fragment="navbar(page)" id="navbar" class="cyan lighten-2 z-depth-1">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="medium white-text navbar-icon material-icons">menu</i></a>
+            <div id="leftnav">
+                <div th:classappend="${page} == 'lobby' ? 'selected'">
+                    <a href="/"><img id="homelogo" src="/images/logo_simple.png"/></a>
+                </div>
+                <div th:classappend="${page} == 'games' ? 'selected'">
+                    <a href="/games"><p>Play</p></a>
+                </div>
+                <div th:if="${hasLastJoined || page == 'game'}" th:classappend="${page} == 'game' ? 'selected'">
+                    <a href="/reconnect"><p>Reconnect</p></a>
+                </div>
+            </div>
+            <div id="centernav">
+                <h5 class="center-align white-text" th:text="'Welcome, ' + ${username} + ' | ' + ${playersOnline} + ' player(s) online'"></h5>
+            </div>
+            <div id="rightnav">
+                <div th:classappend="${page} == 'help' ? 'selected'">
+                    <a href="/help"><p>Help</p></a>
+                </div>
+                <div th:if="${loggedin}">
+                    <a href="/logout"><p>Logout</p></a>
+                </div>
+                <div th:if="!${loggedin}" th:classappend="${page} == 'login' ? 'selected'">
+                    <a href="/login"><p>Sign In</p></a>
+                </div>
+            </div>
+        </div>
+        <div th:fragment="scripts">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script type="text/javascript" src="/js/sidenavload.js"></script>
+        </div>
+    </body>
+</html>

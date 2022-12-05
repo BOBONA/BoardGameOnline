@@ -1,0 +1,102 @@
+{
+  "width": 3,
+  "height": 3.5,
+  "transformX": 0,
+  "transformY": 0.5,
+  "refreshInterval": 1000,
+  "requestContinuations": false,
+  "tileImages": [
+    {
+      "idRange": "0-8",
+      "images": {
+        "0": "/images/general/blank.png",
+        "1": "/images/tictactoe/O.png",
+        "2": "/images/tictactoe/X.png"
+      }
+    }
+  ],
+  "data": [
+    {
+      "teamId": 0,
+      "background": "/images/tictactoe/tttboard.png",
+      "scoreboards": [
+        {
+          "linkedId": 1,
+          "type": "timer",
+          "lastTimestampId": 2,
+          "direction": "increasing",
+          "round": 1000,
+          "display": 1000,
+          "x": 1.5,
+          "y": -0.4,
+          "fontSize": 0.6
+        }
+      ],
+      "tiles": [
+        {
+          "id": 0,
+          "width": 1,
+          "height": 1,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "id": 1,
+          "width": 1,
+          "height": 1,
+          "x": 1,
+          "y": 2
+        },
+        {
+          "id": 2,
+          "width": 1,
+          "height": 1,
+          "x": 2,
+          "y": 2
+        },
+        {
+          "id": 3,
+          "width": 1,
+          "height": 1,
+          "x": 0,
+          "y": 1
+        },
+        {
+          "id": 4,
+          "width": 1,
+          "height": 1,
+          "x": 1,
+          "y": 1
+        },
+        {
+          "id": 5,
+          "width": 1,
+          "height": 1,
+          "x": 2,
+          "y": 1
+        },
+        {
+          "id": 6,
+          "width": 1,
+          "height": 1,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "id": 7,
+          "width": 1,
+          "height": 1,
+          "x": 1,
+          "y": 0
+        },
+        {
+          "id": 8,
+          "width": 1,
+          "height": 1,
+          "x": 2,
+          "y": 0
+        }
+      ]
+    }
+  ]
+}

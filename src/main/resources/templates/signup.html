@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="layout :: head('Sign Up')"></head>
+    <body onload="M.updateTextFields()">
+    <div id="root">
+        <div th:replace="layout :: navbar('signup')"></div>
+        <div th:replace="layout :: sidenav"></div>
+        <div id="contentholder" class="cyan lighten-5">
+            <div style="height: fit-content;" id="content" class="valign-wrapper cyan lighten-4 z-depth-2">
+                <img id="logo" src="/images/logo.png" alt="logo">
+                <form id="form" role="form" th:action="@{/signup}" th:method="post" th:object="${signupForm}">
+                    <div class="row">
+                        <h3 id="formheader" class="col s12 center-align">Create Account</h3>
+                        <div class="input-field col s12">
+                            <input class="validate" type="text" id="name" th:field="*{username}" required minlength="3" maxlength="20">
+                            <label for="name">Username</label>
+                            <p class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
+                        </div>
+                        <div class="input-field col s12">
+                            <input class="validate" type="email" id="email" th:field="*{email}" required>
+                            <label for="email">Email</label>
+                            <p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p>
+                        </div>
+                        <div class="input-field col s12">
+                            <input class="validate" type="password" id="password" th:field="*{password}" required minlength="5" maxlength="20">
+                            <label for="password">Password</label>
+                            <p class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
+                        </div>
+                        <div class="col s12" style="display: flex; flex-direction: row; align-items: center;">
+                            <a href="/login" class="waves-effect waves-teal btn-flat">Log in</a>
+                            <div style="flex-grow: 1;"></div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Register
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div th:insert="layout :: scripts"></div>
+        <script type="text/javascript" src="/js/signup.js"></script>
+    </div>
+    </body>
+</html>

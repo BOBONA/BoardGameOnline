@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout :: head('Error')"></head>
+    <body>
+    <div id="root">
+        <div th:replace="layout :: navbar('lobby')"></div>
+        <div th:replace="layout :: sidenav"></div>
+        <div id="contentholder" class="cyan lighten-5">
+            <div id="basiccontent" class="valign-wrapper cyan lighten-4 z-depth-2">
+                <div style="margin: 0 auto;">
+                    <h1 class="center-align header">Oops!</h1>
+                    <h5 class="center-align">It looks like something went wrong :( <br> Maybe your game expired or was deleted.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div th:insert="layout :: scripts"></div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    </div>
+    </body>
+</html>

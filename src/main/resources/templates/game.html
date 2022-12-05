@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head th:replace="layout :: head(${name})"></head>
+    <body onload="pageLoaded()" onresize="updateCanvas()">
+    <div id="user-data" th:userid="${userId}" th:username="${username}" th:spectatorChat="${canSpectatorsChat}"></div>
+    <img id="blur" hidden="hidden" src="/images/general/blur.png"/>
+    <div id="root">
+        <div th:replace="layout :: navbar('game')"></div>
+        <div th:replace="layout :: sidenav"></div>
+        <div id="main" class="cyan lighten-5">
+            <div id="gamecontainer">
+                <canvas id="gameCanvas" onclick="canvasClicked()" style="border:2px solid #000000;"></canvas>
+            </div>
+            <div id="othercontainer" class="cyan lighten-4">
+                <h3 id="gameType" th:text="${gameType}" class="center-align"></h3>
+                <h5 id="gameName" th:text="${name}" class="center-align text-grey lighten-2"></h5>
+                <div id="buttons">
+                    <a id="newgame" onclick="newGame()" class="btn-small waves-effect waves-light">New Game</a>
+                    <a id="start" onclick="startGame()" class="btn-small waves-effect waves-light disabled">Start</a>
+                    <a id="submit" onclick="submit()" class="btn-small waves-effect waves-light disabled">End Turn</a>
+                    <a id="leave" onclick="leave()" class="btn-small waves-effect waves-light disabled">Leave</a>
+                </div>
+                <div id="remainingspace"></div>
+                <p id="gameData" th:text="'Game Id: ' + ${gameId} + ' | Expires in: ' + ${timeLeft.toMinutes()} + ' minute(s)'"></p>
+                <div class="black divider"></div>
+                <div id="playerlist">
+                    <p id="online"></p>
+                    <p id="offline"></p>
+                </div>
+                <div th:replace="layout :: chat('50%')"></div>
+                <div th:replace="layout :: chatinput"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div th:replace="layout :: scripts"></div>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+        <script type="text/javascript" src="/js/chat.js"></script>
+        <script type="text/javascript" src="/js/detectDisconnect.js"></script>
+        <script type="text/javascript" src="/js/game.js"></script>
+    </div>
+    </body>
+</html>
