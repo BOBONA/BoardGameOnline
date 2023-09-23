@@ -1,6 +1,6 @@
 # BoardGameOnline
 
-BoardGameOnline/BGO is an online multiplayer site which uses the Spring framework, designed to be versatile and extendable. It currently includes tic tac toe, checkers, and connect 4. It was made in 2020. An instance is hosted [here](https://bgo-games.uc.r.appspot.com/).
+BoardGameOnline/BGO is an online multiplayer site which uses the Spring framework, designed to be versatile and extendable. It currently includes tic tac toe, checkers, and connect 4. It was made in 2020. An instance is hosted [here](https://bgo-games.uc.r.appspot.com/) (with limited functionality due to the hosting plan).
 
 ## Disclaimer
 
